@@ -1,4 +1,8 @@
 version: 1.2
 workflows:
   - subclass: WDL 
-    primaryDescriptorPath: <Path> 
+    primaryDescriptorPath: /workflows/preprocess_AFC_inputs.wdl
+    name: preprocess_aFC_inputs
+  - subclass: WDL 
+    primaryDescriptorPath: /workflows/aFC.wdl
+    name: aFC_w_preprocessed
