@@ -205,4 +205,3 @@ workflow aFC_workflow_split_by_chr {
     File final_afc_report = merge_afc_reports.merged_afc_report
   }
 }
-```
