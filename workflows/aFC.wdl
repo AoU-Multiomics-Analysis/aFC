@@ -112,8 +112,14 @@ task merge_afc_reports {
     out="~{prefix}.aFC.txt"
     rm -f "${out}"
 
+    first=true
     for f in ~{sep=' ' afc_reports}; do
-      gzip -cd "$f" >> "${out}"
+      if [ "${first}" = "true" ]; then
+        gzip -cd "$f" >> "${out}"
+        first=false
+      else
+        gzip -cd "$f" | tail -n +2 >> "${out}"
+      fi
     done
 
     gzip "${out}"
